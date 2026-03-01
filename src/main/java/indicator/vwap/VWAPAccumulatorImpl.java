@@ -6,8 +6,8 @@ final class VWAPAccumulatorImpl implements VWAPAccumulator
 {
 	private final TypeArithmetic arithmetic;
 
-	private MoneyType accumulatedNotional = TypeFactory.fromMoney(0);
-	private SizeType accumulatedSize = TypeFactory.fromSize(0);
+	private MoneyType accumulatedNotional = TypeFactory.zeroMoney();
+	private SizeType accumulatedSize = TypeFactory.zeroSize();
 
 	@Override
 	public synchronized void update(final PriceType price, final SizeType size)
@@ -20,15 +20,14 @@ final class VWAPAccumulatorImpl implements VWAPAccumulator
 	@Override
 	public synchronized void reset()
 	{
-		accumulatedNotional = TypeFactory.fromMoney(0);
-		accumulatedSize = TypeFactory.fromSize(0);
+		accumulatedNotional = TypeFactory.zeroMoney();
+		accumulatedSize = TypeFactory.zeroSize();
 	}
 
 	@Override
 	public synchronized PriceType value()
 	{
-		return accumulatedSize.isZero() ? TypeFactory.fromTicks(0) :
-				arithmetic.divide(accumulatedNotional, accumulatedSize);
+		return accumulatedSize.isZero() ? TypeFactory.zeroPrice() : arithmetic.divide(accumulatedNotional, accumulatedSize);
 	}
 
 	VWAPAccumulatorImpl(final TypeArithmetic arithmetic)

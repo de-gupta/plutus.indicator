@@ -2,23 +2,33 @@ package types;
 
 public final class TypeFactory
 {
-	public static PriceType fromTicks(final long ticks)
+	public static PriceType fromPrice(final TradingNumber price)
 	{
-		return WholeTradingType.from(ticks);
+		return PriceTypeImpl.from(price);
 	}
 
-	public static SizeType fromSize(final long size)
+	public static PriceType zeroPrice()
 	{
-		return WholeTradingType.from(size);
+		return PriceTypeImpl.from(TradingNumberFactory.zero());
 	}
 
-	public static MoneyType fromMoney(final long money)
+	public static SizeType fromSize(final TradingNumber size)
 	{
-		return WholeTradingType.from(money);
+		return SizeTypeImpl.from(size);
 	}
 
-	public static TradingType fromValue(final long value)
+	public static SizeType zeroSize()
 	{
-		return WholeTradingType.from(value);
+		return SizeTypeImpl.from(TradingNumberFactory.zero());
+	}
+
+	public static MoneyType fromMoney(final TradingNumber money)
+	{
+		return MoneyTypeImpl.from(money);
+	}
+
+	public static MoneyType zeroMoney()
+	{
+		return MoneyTypeImpl.from(TradingNumberFactory.zero());
 	}
 }
