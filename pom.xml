@@ -16,7 +16,7 @@
         <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <athena.version>0.0.16</athena.version>
+        <athena.version>0.0.18</athena.version>
 
         <maven.release.plugin.version>3.3.1</maven.release.plugin.version>
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>

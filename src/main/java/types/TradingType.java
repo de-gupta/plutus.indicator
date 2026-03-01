@@ -1,8 +1,10 @@
 package types;
 
 import de.gupta.commons.utility.comparison.DescriptivelyComparable;
-import de.gupta.commons.utility.math.algebra.algebraicGroup.GroupStructure;
+import de.gupta.commons.utility.math.algebra.algebraicGroup.AdditiveGroup;
 
-public interface TradingType<T extends TradingType<T>> extends DescriptivelyComparable<T>, GroupStructure<T>
+public sealed interface TradingType extends DescriptivelyComparable<TradingType>, AdditiveGroup<TradingType>
+		permits MoneyType, PriceType, SizeType, WholeTradingType
 {
+	boolean isZero();
 }

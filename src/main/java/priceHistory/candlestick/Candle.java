@@ -3,42 +3,42 @@ package priceHistory.candlestick;
 import types.PriceType;
 import types.SizeType;
 
-public interface Candle<P extends PriceType<P>, S extends SizeType<S>>
+public interface Candle
 {
-	P open();
+	PriceType open();
 
-	P high();
+	PriceType high();
 
-	P low();
+	PriceType low();
 
-	P close();
+	PriceType close();
 
-	S volume();
+	SizeType volume();
 
-	default boolean isHollow()
+	default boolean isBullish()
 	{
 		return close().isGreaterThan(open());
 	}
 
-	default boolean isSolid()
+	default boolean isBearish()
 	{
 		return close().isLessThan(open());
 	}
 
-	default boolean closedHigherThan(P price)
+	default boolean closedHigherThan(PriceType price)
 	{
 		return close().isGreaterThan(price);
 	}
-	default boolean closedLowerThan(P price)
+	default boolean closedLowerThan(PriceType price)
 	{
 		return close().isLessThan(price);
 	}
 
-	default boolean closedHigherThan(Candle<P, S> other)
+	default boolean closedHigherThan(Candle other)
 	{
 		return closedHigherThan(other.close());
 	}
-	default boolean closedLowerThan(Candle<P, S> other)
+	default boolean closedLowerThan(Candle other)
 	{
 		return closedLowerThan(other.close());
 	}

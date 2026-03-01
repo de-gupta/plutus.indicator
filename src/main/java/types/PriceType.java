@@ -1,5 +1,5 @@
 package types;
 
-public interface PriceType<T extends PriceType<T>> extends TradingType<T>
+public sealed interface PriceType extends TradingType permits WholeTradingType
 {
 }
