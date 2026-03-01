@@ -1,4 +1,4 @@
-package priceHistory.candlestick;
+package priceHistory.candle;
 
 import types.PriceType;
 import types.SizeType;

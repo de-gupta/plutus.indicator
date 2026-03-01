@@ -4,7 +4,7 @@ public final class TradingNumberFactory
 {
 	public static TradingNumber from(final long value)
 	{
-		return null;
+		return TradingNumberImpl.from(value);
 	}
 
 	public static TradingNumber zero()
