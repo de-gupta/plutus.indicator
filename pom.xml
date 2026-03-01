@@ -4,32 +4,40 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.gupta</groupId>
+    <groupId>io.github.de-gupta</groupId>
     <artifactId>indicator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
     <description>A library for calculating indicators</description>
-    <url>https://github.com/de-gupta/plutus.indicator.git</url>
+    <url>https://github.com/de-gupta/plutus.indicator</url>
 
     <properties>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
+        <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <maven.release.plugin.version>3.1.1</maven.release.plugin.version>
+        <athena.version>0.0.16</athena.version>
+
+        <maven.release.plugin.version>3.3.1</maven.release.plugin.version>
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
-        <maven.central.publishing.version>0.8.0</maven.central.publishing.version>
-        <maven.source.plugin.version>3.3.1</maven.source.plugin.version>
-        <maven.javadoc.plugin.version>3.11.2</maven.javadoc.plugin.version>
+        <maven.central.publishing.version>0.10.0</maven.central.publishing.version>
+        <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
+        <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
     </properties>
 
     <scm>
         <connection>scm:git:git@github.com:de-gupta/plutus.indicator.git</connection>
         <developerConnection>scm:git:git@github.com:de-gupta/plutus.indicator.git</developerConnection>
-        <url>https://github.com/de-gupta/plutus.indicator.git</url>
-        <tag>HEAD</tag>
+        <url>https://github.com/de-gupta/plutus.indicator</url>
     </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.de-gupta</groupId>
+            <artifactId>athena</artifactId>
+            <version>${athena.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
@@ -38,7 +46,6 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${maven.release.plugin.version}</version>
                 <configuration>
-                    <goals>deploy</goals>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
