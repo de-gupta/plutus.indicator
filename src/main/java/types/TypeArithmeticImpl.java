@@ -29,7 +29,6 @@ final class TypeArithmeticImpl implements TypeArithmetic
 	@Override
 	public PriceType divide(final MoneyType money, final SizeType size)
 	{
-		// TODO
-		return null;
+		return TypeFactory.fromPrice(money.value().divide(size.value()).quotient());
 	}
 }

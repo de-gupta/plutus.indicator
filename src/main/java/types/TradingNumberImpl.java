@@ -1,6 +1,7 @@
 package types;
 
 import de.gupta.commons.utility.comparison.ComparisonResult;
+import de.gupta.commons.utility.math.algebra.ring.DivisionResult;
 
 final class TradingNumberImpl implements TradingNumber
 {
@@ -56,7 +57,16 @@ final class TradingNumberImpl implements TradingNumber
 	{
 		return switch (other)
 		{
-			case TradingNumberImpl w -> from(value * w.value);
+			case TradingNumberImpl w -> from(Math.multiplyExact(value, w.value));
+		};
+	}
+
+	@Override
+	public DivisionResult<TradingNumber> divide(final TradingNumber other)
+	{
+		return switch (other)
+		{
+			case TradingNumberImpl w -> DivisionResult.of(from(Math.divideExact(value, w.value)), from(value % w.value));
 		};
 	}
 
