@@ -1,7 +1,7 @@
 package priceHistory.candle;
 
-import types.PriceType;
-import types.SizeType;
+import plutus.datatypes.types.PriceType;
+import plutus.datatypes.types.SizeType;
 
 record CandleImpl(PriceType open, PriceType high, PriceType low, PriceType close, SizeType volume)
 		implements Candle

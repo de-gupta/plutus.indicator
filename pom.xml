@@ -17,6 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <athena.version>0.0.20</athena.version>
+        <plutus.datatypes.version>0.0.1</plutus.datatypes.version>
 
         <maven.release.plugin.version>3.3.1</maven.release.plugin.version>
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
@@ -36,6 +37,11 @@
             <groupId>io.github.de-gupta</groupId>
             <artifactId>athena</artifactId>
             <version>${athena.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.de-gupta</groupId>
+            <artifactId>plutus.datatype</artifactId>
+            <version>${plutus.datatypes.version}</version>
         </dependency>
     </dependencies>
 

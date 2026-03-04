@@ -1,7 +1,7 @@
 package indicator.vwap;
 
 import de.gupta.commons.utility.math.algebra.ring.DivisionResult;
-import types.*;
+import plutus.datatypes.types.*;
 
 import java.util.concurrent.locks.StampedLock;
 

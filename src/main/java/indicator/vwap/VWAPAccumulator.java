@@ -1,8 +1,8 @@
 package indicator.vwap;
 
 import de.gupta.commons.utility.math.algebra.ring.DivisionResult;
-import types.PriceType;
-import types.SizeType;
+import plutus.datatypes.types.PriceType;
+import plutus.datatypes.types.SizeType;
 
 public interface VWAPAccumulator
 {

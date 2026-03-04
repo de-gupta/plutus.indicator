@@ -1,6 +1,6 @@
 package priceHistory.candle;
 
-import types.TimestampType;
+import plutus.datatypes.types.TimestampType;
 
 import java.time.Duration;
 
