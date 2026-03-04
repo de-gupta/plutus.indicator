@@ -1,5 +1,6 @@
 package indicator.vwap;
 
+import de.gupta.commons.utility.math.algebra.ring.DivisionResult;
 import types.PriceType;
 import types.SizeType;
 
@@ -9,5 +10,5 @@ public interface VWAPAccumulator
 
 	void reset();
 
-	PriceType value();
+	DivisionResult<PriceType> value();
 }

@@ -1,5 +1,7 @@
 package types;
 
+import de.gupta.commons.utility.math.algebra.ring.DivisionResult;
+
 public interface TypeArithmetic
 {
 	PriceType add(final PriceType left, final PriceType right);
@@ -11,4 +13,6 @@ public interface TypeArithmetic
 	MoneyType multiply(final PriceType price, final SizeType size);
 
 	PriceType divide(final MoneyType money, final SizeType size);
+
+	DivisionResult<PriceType> divideExact(final MoneyType money, final SizeType size);
 }

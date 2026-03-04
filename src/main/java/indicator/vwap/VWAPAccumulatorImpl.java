@@ -1,5 +1,6 @@
 package indicator.vwap;
 
+import de.gupta.commons.utility.math.algebra.ring.DivisionResult;
 import types.*;
 
 import java.util.concurrent.locks.StampedLock;
@@ -45,7 +46,7 @@ final class VWAPAccumulatorImpl implements VWAPAccumulator
 	}
 
 	@Override
-	public synchronized PriceType value()
+	public synchronized DivisionResult<PriceType> value()
 	{
 		// optimistic read first - no lock acquisition if no concurrent write
 		long stamp = lock.tryOptimisticRead();
@@ -65,7 +66,7 @@ final class VWAPAccumulatorImpl implements VWAPAccumulator
 				lock.unlockRead(stamp);
 			}
 		}
-		return size.isZero() ? TypeFactory.zeroPrice() : arithmetic.divide(notional, size);
+		return size.isZero() ? DivisionResult.of(TypeFactory.zeroPrice(), TypeFactory.zeroPrice()) : arithmetic.divideExact(notional, size);
 	}
 
 	VWAPAccumulatorImpl(final TypeArithmetic arithmetic)

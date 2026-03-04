@@ -1,5 +1,7 @@
 package types;
 
+import de.gupta.commons.utility.math.algebra.ring.DivisionResult;
+
 final class TypeArithmeticImpl implements TypeArithmetic
 {
 	@Override
@@ -30,5 +32,12 @@ final class TypeArithmeticImpl implements TypeArithmetic
 	public PriceType divide(final MoneyType money, final SizeType size)
 	{
 		return TypeFactory.fromPrice(money.value().divide(size.value()).quotient());
+	}
+
+	@Override
+	public DivisionResult<PriceType> divideExact(final MoneyType money, final SizeType size)
+	{
+		final var price = money.value().divide(size.value());
+		return DivisionResult.of(TypeFactory.fromPrice(price.quotient()), TypeFactory.fromPrice(price.remainder()));
 	}
 }
