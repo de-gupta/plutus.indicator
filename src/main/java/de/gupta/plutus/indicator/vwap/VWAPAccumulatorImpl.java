@@ -1,4 +1,4 @@
-package indicator.vwap;
+package de.gupta.plutus.indicator.vwap;
 
 import de.gupta.commons.utility.math.algebra.ring.DivisionResult;
 import plutus.datatypes.types.*;

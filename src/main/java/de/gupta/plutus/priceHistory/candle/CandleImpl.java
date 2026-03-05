@@ -1,4 +1,4 @@
-package priceHistory.candle;
+package de.gupta.plutus.priceHistory.candle;
 
 import plutus.datatypes.types.PriceType;
 import plutus.datatypes.types.SizeType;

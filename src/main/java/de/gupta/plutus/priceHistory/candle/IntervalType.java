@@ -1,4 +1,4 @@
-package priceHistory.candle;
+package de.gupta.plutus.priceHistory.candle;
 
 public enum IntervalType
 {
